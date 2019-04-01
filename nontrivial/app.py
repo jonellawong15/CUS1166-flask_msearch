@@ -13,6 +13,9 @@ def index():
 db = SQLAlchemy(app)
 
 class Course(db.Model):
+    __tablename__ = 'Course'
+    __searchable__ = ['id', 'name', 'description']
+
 	#which columns can be searched:
 	id = db.Column(db.Integer, primary_key = True)
 	name = db.Column(db.String(30))

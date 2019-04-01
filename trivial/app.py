@@ -23,3 +23,7 @@ def w_search():
     keyword = request.args.get('keyword')
     results = Post.query.msearch(keyword,fields=['title'],limit=20).filter(...)
     return ''
+
+@app.route("/return", methods = ['post'])
+def return():
+    return render_template('result.html')
