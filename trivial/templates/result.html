@@ -1,1 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>Results</title>
+    </head>
+
+    <body>
+        <form action="/return" method="post">
+            <label for="keyword">Search keyword:</label>
+            <input type="keyword" id="keyword" name="keyword" placeholder="Enter your search here">
+            <button type="submit">Send</button>
+        </form>
+
+        <table>
+    <?php
+        $sql=$db->prepare('SELECT * FROM mytable WHERE keyword=:keyword');
+        $sql->execute(array(':keyword'=>$_REQUEST[keyword]));
+        while ($row=$sql->fetch())
+    {
+       echo "<tr><td>$row[id]</td><td>$row[name]</td><td>$row[description]</td></tr>";
+     }
+    ?>
+    </table>
+
+    </body>
+
+</html>
 
