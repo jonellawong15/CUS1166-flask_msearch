@@ -4,6 +4,7 @@ from config import Config
 import os
 
 app = Flask(app)
+search = Search()
 search.init_app(app)
 
 @app.route('/')
