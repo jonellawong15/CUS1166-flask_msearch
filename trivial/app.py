@@ -3,7 +3,7 @@ from flask_msearch import Search
 from config import Config
 import os
 
-search = Search()
+app = Flask(app)
 search.init_app(app)
 
 @app.route('/')
@@ -21,7 +21,7 @@ class Post(db.Model):
 @app.route("/search")
 def w_search():
     keyword = request.args.get('keyword')
-    results = Post.query.msearch(keyword,fields=['title'],limit=20).filter(...)
+    results = Post.query.msearch(keyword,fields=['title'],limit=20).filter())
     return ''
 
 @app.route("/return", methods = ['post'])
